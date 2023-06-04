@@ -1,6 +1,10 @@
 # Project Title
 
-Twitch Plays Wii.
+Twitch Plays Wii!
+
+# Description
+
+TWITCH CHAT PLAYS WII!!!!!!!
 
 ### Dependencies
 
@@ -9,30 +13,32 @@ Twitch Plays Wii.
 
 ### Installing
 
-- Run the following command (make sure to have [Node.js](https://nodejs.org/) installed)
+- Install the source code locally (using [git](https://git-scm.com/) is recommended)
+
+- Open a terminal in the folder you installed. You can do this by opening a terminal and typing the following
+
+```
+cd C:/Users/Username/Downloads/TwitchPlaysWii
+```
+- Alternatively you can right click on the folder in your File Explorer and click on "Open in terminal"
+
+
+- Run the following command (make sure [Node.js](https://nodejs.org/) is installed)
 
 ```
 npm i
 ```
 
-- create a file named `.env` and paste the contents from `.env.example`
+- create a file named `.env` and copy/paste the contents from `.env.example` into it
 - modify accordingly
 
 ### Executing program
 
-- Open a terminal in this folder
+- Open a terminal in the folder of this program
 - Run the following command
 
 ```
 node .
-```
-
-## Help
-
-Any advise for common problems or issues.
-
-```
-command to run if program contains helper info
 ```
 
 ## Author
@@ -48,6 +54,5 @@ Before (commercially) using this program, contact the author via Email or Discor
 
 ## Acknowledgments
 
-Inspiration/Client
-
+Client
 - [GreasyMac](https://greasygang.co)
