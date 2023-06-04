@@ -27,14 +27,6 @@ npm i
 node .
 ```
 
-## Help
-
-Any advise for common problems or issues.
-
-```
-command to run if program contains helper info
-```
-
 ## Author
 
 [@veryCrunchy](https://github.com/veryCrunchy)
