@@ -43,13 +43,13 @@
   },
   {
     "name": "big left",
-    "inputs": ["bl", "big left"],
+    "inputs": ["bl", "big left", "big l"],
     "outputs": "LeftBracket",
     "time": 1.2
   },
   {
     "name": "big right",
-    "inputs": ["br", "big right"],
+    "inputs": ["br", "big right", "big r"],
     "outputs": "RightBracket",
     "time": 1.2
   }
