@@ -1,10 +1,4 @@
-# Project Title
-
-Twitch Plays Wii!
-
-# Description
-
-TWITCH CHAT PLAYS WII!!!!!!!
+# Twitch Plays Wii!
 
 ### Dependencies
 
@@ -13,15 +7,19 @@ TWITCH CHAT PLAYS WII!!!!!!!
 
 ### Installing
 
-- Install the source code locally (using [git](https://git-scm.com/) is recommended)
-
-- Open a terminal in the folder you installed. You can do this by opening a terminal and typing the following
-
+- Open a terminal and clone this repo using [git](https://git-scm.com/)
 ```
-cd C:/Users/Username/Downloads/TwitchPlaysWii
+git clone https://github.com/veryCrunchy/TwitchPlaysWii.git
 ```
-- Alternatively you can right click on the folder in your File Explorer and click on "Open in terminal"
 
+- Open a terminal in the folder 
+```
+cd TwitchPlaysWii
+```
+or
+```
+cd C:/Path/To/TwitchPlaysWii
+```
 
 - Run the following command (make sure [Node.js](https://nodejs.org/) is installed)
 
@@ -47,10 +45,10 @@ node .
 
 ## License
 
-Before (commercially) using this program, contact the author via Email or Discord
+Before (commercially) using this program, contact the author via Discord or Email
 
-- verycrunchydev@gmail.com
 - veryCrunchy#3281
+- verycrunchydev@gmail.com
 
 ## Acknowledgments
 
