@@ -1,3 +1,18 @@
+console.clear();
+
+require("child_process").execSync("git fetch", { cwd: __dirname });
+let commit = require("child_process")
+  .execSync("git status -uno", { cwd: __dirname })
+  .toString()
+  .trim();
+if (commit.includes("Your branch is behind"))
+  console.log(
+    "\x1b[40m\x1b[31mThere is a new version of TwitchPlaysWii available!\x1b[0m"
+  ),
+    console.log(
+      "\x1b[40m\x1b[31mRun\x1b[33m `git pull`\x1b[31m to update.\x1b[0m"
+    );
+
 const { Client } = require("tmi.js");
 const { keyboard, Key, getActiveWindow } = require("@nut-tree/nut-js");
 const { findBestMatch } = require("string-similarity");
@@ -71,7 +86,7 @@ async function setInput() {
 setInterval(setInput, 15000);
 
 console.log(
-  `\x1b[2m\x1b[36mAttempting to connect to channel;\x1b[35m ${env.CHANNEL} \x1b[2m\x1b[33m`
+  `\x1b[0m\x1b[2m\x1b[36mAttempting to connect to channel\x1b[35m ${env.CHANNEL} \x1b[2m\x1b[33m`
 );
 client.connect();
 
@@ -112,10 +127,7 @@ if (env.MODE === "TIMED") {
   setInterval(async () => {
     if (!tempMap.size) return;
     const windowRef = await getActiveWindow();
-    const [title, region] = await Promise.all([
-      windowRef.title,
-      windowRef.region,
-    ]);
+    const [title] = await Promise.all([windowRef.title]);
     if (
       !title.includes("Dolphin") ||
       (!title.includes("Dolphin") && !title.includes("|"))
@@ -190,7 +202,6 @@ function getMatch(m) {
 
   let match = findBestMatch(m, Array.from(inputs.keys()));
   if (match) {
-    console.log(match.bestMatch.rating);
     if (match.bestMatch.rating < 0.5)
       return { output: undefined, time: undefined, name: undefined };
     match = match.bestMatch.target;

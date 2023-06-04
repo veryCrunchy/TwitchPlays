@@ -3,14 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "nodemonConfig": {
+    "watch": [
+      "index.js",
+      "inputs"
+    ]
+  },
   "scripts": {},
   "author": "veryCrunchyDev",
   "dependencies": {
     "@nut-tree/nut-js": "^3.1.1",
     "dotenv": "^16.0.3",
     "string-similarity": "^4.0.4",
-    "tmi.js": "^1.8.5",
-    "tsc": "^2.0.4"
+    "tsc": "^2.0.4",
+    "tmi.js": "^1.8.5"
   },
   "devDependencies": {
     "@types/string-similarity": "^4.0.0",
