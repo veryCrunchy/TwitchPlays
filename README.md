@@ -15,11 +15,13 @@ TWITCH CHAT PLAYS WII!!!!!!!
 
 - Install the source code locally (using [git](https://git-scm.com/) is recommended)
 
-- Open a terminal in the folder you installed, E.g.
+- Open a terminal in the folder you installed. You can do this by opening a terminal and typing the following
 
 ```
 cd C:/Users/Username/Downloads/TwitchPlaysWii
 ```
+- Alternatively you can right click on the folder in your File Explorer and click on "Open in terminal"
+
 
 - Run the following command (make sure [Node.js](https://nodejs.org/) is installed)
 
