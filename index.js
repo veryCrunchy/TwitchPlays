@@ -104,10 +104,15 @@ client.on("connected", async () => {
 ////////////////////////////////
 if (env.MODE === "TIMED") {
   tempMap = new Map();
+  tempUser = [];
   client.on("message", async (channel, tags, m, self) => {
     let { output, name } = getMatch(m);
     if (!name) return;
     let map = tempMap.get(name);
+    let user = tempUser.find((u) => u === tags.username);
+    if (user) return;
+    console.log(`${tags.username} chose ${name}`);
+    tempUser.push(tags.username);
     if (!map) {
       tempMap.set(name, 1);
     } else {
@@ -145,8 +150,10 @@ if (env.MODE === "TIMED") {
       );
       highestKey = keysWithHighestValue[randomIndex];
     }
+    console.log("Collective input: " + highestKey);
     let time = times.get(highestKey);
     tempMap.clear();
+    tempUser = [];
     hold(Key[outputs.get(highestKey)], time);
   }, process.env.TIMED_INTERVAL * 1000);
 }
@@ -177,11 +184,8 @@ if (env.MODE === "CHAOS") {
 hold = async (keys, seconds) => {
   const startTime = Date.now();
   await keyboard.pressKey(keys);
-  console.log("pressed");
   seconds = seconds * 1000 - (Date.now() - startTime);
-  console.log(seconds);
   setTimeout(async function () {
-    console.log("releasing");
     await keyboard.releaseKey(keys);
   }, seconds);
 };
