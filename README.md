@@ -13,18 +13,26 @@ TWITCH CHAT PLAYS WII!!!!!!!
 
 ### Installing
 
-- Run the following command (make sure to have [Node.js](https://nodejs.org/) installed)
+- Install the source code locally (using [git](https://git-scm.com/) is recommended)
+
+- Open a terminal in the folder you installed, E.g.
+
+```
+cd C:/Users/Username/Downloads/TwitchPlaysWii
+```
+
+- Run the following command (make sure [Node.js](https://nodejs.org/) is installed)
 
 ```
 npm i
 ```
 
-- create a file named `.env` and paste the contents from `.env.example`
+- create a file named `.env` and copy/paste the contents from `.env.example` into it
 - modify accordingly
 
 ### Executing program
 
-- Open a terminal in this folder
+- Open a terminal in the folder of this program
 - Run the following command
 
 ```
