@@ -1,7 +1,7 @@
 const tmi = require("tmi.js");
 const { keyboard, Key, getActiveWindow } = require("@nut-tree/nut-js");
 const { distance, closestMatch } = require("closest-match");
-
+const fs = require("fs");
 require("dotenv").config();
 
 const env = {
@@ -11,92 +11,74 @@ const env = {
 };
 if (Object.values(env).includes("nil"))
   return console.error(
-    "\x1b[40m\x1b[31mNot all \x1b[33m.ENV \x1b[31mvariables are defined!\x1b[0m\n" +
-      "\x1b[40m\x1b[31mPlease check the \x1b[33m.env \x1b[31mfile.\x1b[0m\n" +
+    "\x1b[40m\x1b[31mNot all\x1b[33m .ENV\x1b[31m variables are defined!\x1b[0m\n" +
+      "\x1b[40m\x1b[31mPlease check the\x1b[33m .env\x1b[31m file.\x1b[0m\n" +
       "\x1b[40m\x1b[31mFor guidance, see \x1b[33m.env.example\x1b[31m.\x1b[0m"
   );
-console.log(
-  `\x1b[2m\x1b[36mAttempting to connect to channel;\x1b[35m ${env.CHANNEL} \x1b[2m\x1b[33m`
-);
+
 const client = new tmi.Client({
   channels: [env.CHANNEL],
 });
 
+let inputConfigs = [];
+for (let config of fs
+  .readdirSync(`./inputs/`)
+  .filter((file) => file.endsWith(".json"))) {
+  inputConfigs.push(config);
+}
+if (!inputConfigs.length)
+  return (
+    console.error(
+      "\x1b[0m\x1b[40m\x1b[31mYou do not have any\x1b[33m input\x1b[31m configuration files!\x1b[0m\n" +
+        "\x1b[40m\x1b[31mPlease check the\x1b[33m inputs/README\x1b[31m file.\x1b[0m\n"
+    ),
+    process.exit()
+  );
+
+////////////////////////////////
+// AUTOMATIC INPUT SWITCHER
+////////////////////////////////
+let lastInput;
+const inputs = new Map();
+const outputs = new Map();
+const times = new Map();
+
+setInput = async () => {
+  const windowRef = await getActiveWindow();
+  const [title] = await Promise.all([windowRef.title]);
+  if (!title.includes("Dolphin")) return;
+  if (lastInput === title) return;
+  let match = closestMatch(title, inputConfigs);
+  const inputData = require(`./inputs/${match}`);
+  inputs.clear();
+  outputs.clear();
+  times.clear();
+  for (let i of inputData) {
+    for (let input of i.inputs) {
+      inputs.set(input, i.name);
+    }
+    outputs.set(i.name, i.outputs);
+    times.set(i.name, i.time);
+  }
+  lastInput = title;
+  console.log(
+    `\x1b[33m -\x1b[0m\x1b[36m Switched to config\x1b[35m ${match}\x1b[32m\x1b[0m`
+  );
+};
+setInterval(setInput, 15000);
+
+console.log(
+  `\x1b[2m\x1b[36mAttempting to connect to channel;\x1b[35m ${env.CHANNEL} \x1b[2m\x1b[33m`
+);
 client.connect();
 
-const inputData = [
-  {
-    name: "drive",
-    inputs: ["drive", "forward", "w", "go", "d"],
-    outputs: "Num2",
-    time: 2,
-  },
-  {
-    name: "break",
-    inputs: ["break", "b", "stop"],
-    outputs: "A",
-    time: 1,
-  },
-  {
-    name: "back",
-    inputs: ["back", "backward", "s", "reverse"],
-    outputs: "B",
-    time: 2,
-  },
-  {
-    name: "s-left",
-    inputs: ["sl", "slight left", "small left"],
-    outputs: "LeftBracket",
-    time: 0.3,
-  },
-  {
-    name: "s-right",
-    inputs: ["sr", "slight right", "small right"],
-    outputs: "RightBracket",
-    time: 0.3,
-  },
-  {
-    name: "left",
-    inputs: ["l", "left"],
-    outputs: "LeftBracket",
-    time: 0.7,
-  },
-  {
-    name: "right",
-    inputs: ["r", "right"],
-    outputs: "RightBracket",
-    time: 0.7,
-  },
-  {
-    name: "b-left",
-    inputs: ["bl", "big left"],
-    outputs: "LeftBracket",
-    time: 1.2,
-  },
-  {
-    name: "b-right",
-    inputs: ["br", "big right"],
-    outputs: "RightBracket",
-    time: 1.2,
-  },
-];
-
-let inputs = new Map();
-let outputs = new Map();
-let times = new Map();
-for (let i of inputData) {
-  for (let input of i.inputs) {
-    inputs.set(input, i.name);
-  }
-  outputs.set(i.name, i.outputs);
-  times.set(i.name, i.time);
-}
 client.on("connected", async () => {
+  setInput();
   console.log(
     `\x1b[0m\x1b[32mSuccessfully connected to \x1b[35m${env.CHANNEL}`
   );
   console.log(
-    `\x1b[0m\x1b[32mStarted in \x1b[33m${process.env.MODE} \x1b[32mmode.\x1b[0m`
+    `\x1b[0m\x1b[32mStarted in \x1b[33m${env.MODE} \x1b[32mmode.\x1b[0m`
   );
 });
 ////////////////////////////////
@@ -111,7 +93,9 @@ if (env.MODE === "TIMED") {
     let map = tempMap.get(name);
     let user = tempUser.find((u) => u === tags.username);
     if (user) return;
-    console.log(`${tags.username} chose ${name}`);
+    console.log(
+      `\x1b[2m\x1b[34m${tags.username} chose:\x1b[33m ${name}\x1b[0m`
+    );
     tempUser.push(tags.username);
     if (!map) {
       tempMap.set(name, 1);
@@ -150,12 +134,12 @@ if (env.MODE === "TIMED") {
       );
       highestKey = keysWithHighestValue[randomIndex];
     }
-    console.log("Collective input: " + highestKey);
+    console.log("\x1b[36mCollective input: \x1b[35m" + highestKey);
     let time = times.get(highestKey);
     tempMap.clear();
     tempUser = [];
     hold(Key[outputs.get(highestKey)], time);
-  }, process.env.TIMED_INTERVAL * 1000);
+  }, env.TIMED_INTERVAL * 1000);
 }
 ////////////////////////////////
 // CHAOS MODE
@@ -192,7 +176,6 @@ hold = async (keys, seconds) => {
 release = async (keys) => {
   await keyboard.releaseKey(keys);
 };
-
 getMatch = (m) => {
   m = m.trim().toLowerCase();
   const closest = closestMatch(m, Array.from(inputs.keys()));
