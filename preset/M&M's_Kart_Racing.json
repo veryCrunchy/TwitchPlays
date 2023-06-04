@@ -3,7 +3,7 @@
     "name": "drive",
     "inputs": ["drive", "forward", "w", "go", "d"],
     "outputs": "Num2",
-    "time": 0.9
+    "time": 1
   },
   {
     "name": "brake",
