@@ -1,6 +1,10 @@
 # Project Title
 
-Twitch Plays Wii.
+Twitch Plays Wii!
+
+# Description
+
+TWITCH CHAT PLAYS WII!!!!!!!
 
 ### Dependencies
 
@@ -40,6 +44,5 @@ Before (commercially) using this program, contact the author via Email or Discor
 
 ## Acknowledgments
 
-Inspiration/Client
-
+Client
 - [GreasyMac](https://greasygang.co)
