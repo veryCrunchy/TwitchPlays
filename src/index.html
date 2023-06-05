@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Socket.IO chat</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: large;
+            font-weight: 400;
+            zoom: 400%;
+            color: white,
+
+        }
+
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #messages>li {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 4px;
+            width: fit-content;
+            display: block;
+            border-radius: 5px;
+            background: #c6c6c6b1;
+            overflow: clip;
+            max-height: 200px;
+            padding: 0.5rem 1rem;
+        }
+
+        /* #messages>li {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 4px;
+            width: fit-content;
+            display: block;
+            border-radius: 5px;
+            background: #55555555;
+            overflow: hidden;
+            max-height: 200px;
+            padding: 0.5rem 1rem;
+            transform: scaleY(1);
+            transform-origin: top left;
+        }
+
+        .deleting {
+            transform: scaleY(0) !important;
+            background: #1313bd !important;
+            max-height: 0 !important;
+            margin-bottom: 0 !important;
+            transition: all 2000ms ease, transform 1000ms ease 1000ms !important;
+        } */
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,700&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+
+<body>
+    <ul id="messages"></ul>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        var socket = io();
+
+        var messages = document.getElementById('messages');
+        let timeout = 10000;
+        socket.on('timeout', function (t) {
+            timeout = t
+        })
+        socket.on('clear', function () { messages.innerHTML = "" })
+        socket.on('message', function (msg) {
+
+            var item = document.createElement('li');
+            item.innerHTML = document.createElement('div').innerHTML = msg
+            let el = messages.appendChild(item);
+
+            for (let m of messages.childNodes) {
+                let rect = m.getBoundingClientRect()
+                if (rect.top < 0) messages.removeChild(m);
+
+            }
+
+
+
+            item.scrollIntoView()
+
+        });
+    </script>
+</body>
+
+</html>
