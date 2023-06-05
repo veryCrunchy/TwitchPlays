@@ -8,15 +8,19 @@
 ### Installing
 
 - Open a terminal and clone this repo using [git](https://git-scm.com/)
+
 ```
 git clone https://github.com/veryCrunchy/TwitchPlaysWii.git
 ```
 
-- Open a terminal in the folder 
+- Open a terminal in the folder
+
 ```
 cd TwitchPlaysWii
 ```
+
 or
+
 ```
 cd C:/Path/To/TwitchPlaysWii
 ```
@@ -30,9 +34,9 @@ npm i
 - create a file named `.env` and copy/paste the contents from `.env.example` into it
 - modify accordingly
 
-### Executing program
+### Executing script
 
-- Open a terminal in the folder of this program
+- Open a terminal in the folder of this script
 - Run the following command
 
 ```
@@ -45,7 +49,7 @@ node .
 
 ## License
 
-Before (commercially) using this program, contact the author via Discord or Email
+Before (commercially) using this script, contact the author via Discord or Email
 
 - veryCrunchy#3281
 - verycrunchydev@gmail.com
@@ -53,4 +57,5 @@ Before (commercially) using this program, contact the author via Discord or Emai
 ## Acknowledgments
 
 Client
+
 - [GreasyMac](https://greasygang.co)

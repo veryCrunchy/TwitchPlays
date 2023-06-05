@@ -10,7 +10,7 @@ if (commit.includes("Your branch is behind"))
     "\x1b[40m\x1b[31mThere is a new version of TwitchPlaysWii available!\x1b[0m"
   ),
     console.log(
-      "\x1b[40m\x1b[31mRun\x1b[33m `git pull`\x1b[31m to update.\x1b[0m"
+      "\x1b[40m\x1b[31mRun\x1b[33m git pull\x1b[31m to update.\x1b[0m"
     );
 
 const { Client } = require("tmi.js");
