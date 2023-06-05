@@ -1,5 +1,11 @@
 [
   {
+    "name": "honk",
+    "inputs": ["honk", "toot"],
+    "outputs": "Num1",
+    "time": 1
+  },
+  {
     "name": "drive",
     "inputs": ["drive", "forward", "w", "go", "d"],
     "outputs": "Num2",
