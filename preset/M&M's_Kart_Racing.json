@@ -1,7 +1,7 @@
 [
   {
     "name": "honk",
-    "inputs": ["honk", "toot"],
+    "inputs": ["honk", "toot", "beep"],
     "outputs": "Num1",
     "time": 1
   },
