@@ -59,3 +59,12 @@ Before (commercially) using this script, contact the author via Discord or Email
 Client
 
 - [GreasyMac](https://greasygang.co)
+
+### Preview
+
+
+
+https://github.com/veryCrunchy/TwitchPlaysWii/assets/73395916/b2dcf8a5-04b3-40bd-92e0-89b250a6d30a
+
+https://github.com/veryCrunchy/TwitchPlaysWii/assets/73395916/1c54b51c-d758-463c-b364-66897cf58292
+
