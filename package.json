@@ -4,6 +4,7 @@
   "description": "",
   "main": "configs.js",
   "nodemonConfig": {
+    "quiet": true,
     "watch": [
       "src",
       "configs.js",
