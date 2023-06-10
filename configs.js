@@ -1,6 +1,6 @@
 let configuration = {
   // Your twitch channel name, as shown in your twitch.tv/channel_name url. Should be lowercase!
-  CHANNEL: "greasymaec",
+  CHANNEL: "greasymac",
 
   ////////////////////////////////////////////////////////
   //↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ DEFAULT CONFIGS ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓//
