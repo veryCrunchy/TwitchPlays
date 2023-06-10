@@ -59,6 +59,7 @@ let lastMatch;
 const inputs = new Map();
 const outputs = new Map();
 const times = new Map();
+const delays = new Map();
 const interval = setInterval(setInput, 2000);
 let inputData;
 module.exports.inputData = inputData;
@@ -75,12 +76,14 @@ async function setInput() {
   inputs.clear();
   outputs.clear();
   times.clear();
+  delays.clear();
   for (let i of inputData.inputs) {
     for (let input of i.inputs) {
       inputs.set(input, i.name);
     }
     outputs.set(i.name, i.outputs);
     times.set(i.name, i.time);
+    delays.set(i.name, i.delay);
   }
   console.log(
     `\x1b[33m -\x1b[0m\x1b[36m Automatically ${
@@ -102,6 +105,7 @@ async function setInput() {
       inputs: inputs,
       outputs: outputs,
       times: times,
+      delays: delays,
     },
   });
   env = getConfiguration();

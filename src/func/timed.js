@@ -95,12 +95,9 @@ async function startInterval() {
   obs.send(
     `<span class="blue">Collective input</span> <span class="pink">${highestKey}</span>`
   );
-  let time = env.data.times.get(highestKey);
   tempMap.clear();
   tempUser = [];
-
-  const outEnumKey = Key[env.data.outputs.get(highestKey)];
-  go.hold(outEnumKey, time);
+  go.manage(highestKey);
 }
 function clearPreserved() {
   if (preserved) {

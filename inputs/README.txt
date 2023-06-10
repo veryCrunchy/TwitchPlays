@@ -10,65 +10,30 @@ Structure:
 
 {
   "config": {
-    "WINDOW": ["Window", "title", "must", "have", "these", "words", "in order", "to", "be", "outputted"],
+    "WINDOW": ["Window", "title],
     "TIMED_MODE": true,
+    "TIMED_ON_INPUT": true,
     "INTERVAL": 2,
     "TIMEOUT": 2,
   },
   "inputs": [
     {
-      "name": "drive",
-      "inputs": ["drive", "forward", "w", "go", "d"],
-      "outputs": "Num2",
-      "time": 0.7
+      "name": "walk forward",
+      "inputs": ["walk", "go", "w", "forward"],
+      "outputs": ["W"],
+      "time": [1]
     },
     {
-      "name": "brake",
-      "inputs": ["brake", "b", "stop"],
-      "outputs": "A",
-      "time": 1
+      "name": "look up",
+      "inputs": ["look up", "up", "mouse up"],
+      "outputs": ["up(10)"],
+      "time": [0]
     },
     {
-      "name": "reverse",
-      "inputs": ["back", "backward", "s", "reverse"],
-      "outputs": "B",
-      "time": 2
+      "name": "look left",
+      "inputs": ["look up", "up", "mouse up"],
+      "outputs": ["left(10)"],
+      "time": [0]
     },
-    {
-      "name": "small left",
-      "inputs": ["sl", "slight left", "small left"],
-      "outputs": "LeftBracket",
-      "time": 0.3
-    },
-    {
-      "name": "small right",
-      "inputs": ["sr", "slight right", "small right"],
-      "outputs": "RightBracket",
-      "time": 0.3
-    },
-    {
-      "name": "left",
-      "inputs": ["l", "left"],
-      "outputs": "LeftBracket",
-      "time": 0.7
-    },
-    {
-      "name": "right",
-      "inputs": ["r", "right"],
-      "outputs": "RightBracket",
-      "time": 0.7
-    },
-    {
-      "name": "big left",
-      "inputs": ["bl", "big left", "big l"],
-      "outputs": "LeftBracket",
-      "time": 1.2
-    },
-    {
-      "name": "big right",
-      "inputs": ["br", "big right", "big r"],
-      "outputs": "RightBracket",
-      "time": 1.2
-    }
   ]
 }

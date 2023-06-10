@@ -32,13 +32,13 @@ async function message(tags, m, self) {
     tempUser.delete(tags.username);
   }, env.TIMEOUT * 1000);
 
-  let { output, time, name } = go.getMatch(m);
-  if (!output) return;
+  let { name } = go.getMatch(m);
+  if (!name) return;
   console.log(`\x1b[34m${tags.username}:\x1b[33m ${name}\x1b[0m`);
   obs.send(
     `<span style="color: ${tags.color}">${tags.username}</span> <span class="yellow">${name}</span>`
   );
-  go.hold(Key[output], time);
+  go.manage(name);
 }
 
 module.exports = { message };
