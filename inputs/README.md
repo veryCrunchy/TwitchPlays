@@ -1,20 +1,19 @@
-Copy inputs from the "preset" folder into here
+Copy inputs from the `preset` folder into here
 Or create your own for a different game
 Name the file after the game for which you want the inputs
 For example "M&M's_Kart_Racing.json"
 
-Do not edit the files inside of the "preset" folder!!
-Or any other file outside of the ones you created like above.
+Do not edit the files inside of the `preset` folder!
 
-Structure:
-
+Example:
+```json
 {
   "config": {
-    "WINDOW": ["Window", "title],
+    "WINDOW": ["Window", "title"],
     "TIMED_MODE": true,
     "TIMED_ON_INPUT": true,
     "INTERVAL": 2,
-    "TIMEOUT": 2,
+    "TIMEOUT": 2
   },
   "inputs": [
     {
@@ -25,15 +24,22 @@ Structure:
     },
     {
       "name": "look up",
-      "inputs": ["look up", "up", "mouse up"],
-      "outputs": ["up(10)"],
+      "inputs": ["look up", "mouse up"],
+      "outputs": ["up(100)"],
       "time": [0]
     },
     {
       "name": "look left",
-      "inputs": ["look up", "up", "mouse up"],
-      "outputs": ["left(10)"],
-      "time": [0]
+      "inputs": ["look left", "mouse left"],
+      "outputs": ["left(100)", "W"],
+      "time": [0, 1]
     },
+    {
+      "name": "say hello",
+      "inputs": ["hello"],
+      "outputs": ["type(hello)"],
+      "time": [0]
+    }
   ]
 }
+```
