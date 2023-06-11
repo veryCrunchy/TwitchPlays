@@ -127,5 +127,3 @@ dist
 .pnp.*
 
 inputs/*.json
-
-configs.js
