@@ -9,13 +9,18 @@ const {
 } = require("@nut-tree/nut-js");
 const { findBestMatch } = require("string-similarity");
 const { getConfiguration } = require("../../configs.js");
+let holding = new Map();
 async function hold(keys, seconds) {
-  const startTime = Date.now();
-  await keyboard.pressKey(keys);
-  seconds = (seconds || 1) * 1000 - (Date.now() - startTime);
+  keyboard.pressKey(keys);
+  let hold = holding.get(keys);
+  hold == undefined ? holding.set(keys, 1) : holding.set(keys, hold + 1);
   setTimeout(async function () {
-    await keyboard.releaseKey(keys);
-  }, seconds);
+    hold = holding.get(keys);
+    if (hold === 1) {
+      keyboard.releaseKey(keys);
+      holding.set(keys, hold - 1);
+    } else holding.set(keys, hold - 1);
+  }, seconds * 1000);
 }
 function getMatch(m) {
   if (typeof m != "string" || m == null)
@@ -84,14 +89,16 @@ async function manage(name) {
     } else {
       const time = times[i];
       if (delay) {
-        if (time < 0.5) {
-          keyboard.pressKey(Key[press]);
-          setTimeout(() => keyboard.releaseKey(Key[press]), 70);
+        if (time < 0.3) {
+          setTimeout(() => {
+            keyboard.pressKey(Key[press]);
+            setTimeout(() => keyboard.releaseKey(Key[press]), 70);
+          }, delay * 1000);
         } else
           setTimeout(() => {
             hold(Key[press], time);
           }, delay * 1000);
-      } else if (time < 0.5) {
+      } else if (time < 0.3) {
         keyboard.pressKey(Key[press]);
         setTimeout(() => keyboard.releaseKey(Key[press]), 70);
       } else hold(Key[press], time);

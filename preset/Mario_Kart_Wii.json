@@ -1,0 +1,122 @@
+{
+  "config": {
+    "WINDOW": ["Dolphin", "RMCE01"],
+    "TIMED_MODE": true,
+    "TIMED_ON_INPUT": true,
+    "INTERVAL": 1
+  },
+  "inputs": [
+    {
+      "name": "drive",
+      "inputs": ["drive", "go", "d"],
+      "outputs": ["A"],
+      "time": [5]
+    },
+    {
+      "name": "slight drive",
+      "inputs": ["slight drive", "slight go", "small drive", "small go", "sd"],
+      "outputs": ["A"],
+      "time": [1]
+    },
+    {
+      "name": "left",
+      "inputs": ["left", "l"],
+      "outputs": ["J", "A"],
+      "time": [1, 1.2]
+    },
+    {
+      "name": "right",
+      "inputs": ["right", "r"],
+      "outputs": ["L", "A"],
+      "time": [1, 1.2]
+    },
+    {
+      "name": "slight left",
+      "inputs": ["slight left", "slight l", "small left", "small l", "sl"],
+      "outputs": ["J", "A"],
+      "time": [0.4, 0.4]
+    },
+    {
+      "name": "slight right",
+      "inputs": ["slight right", "slight r", "small right", "small r", "sr"],
+      "outputs": ["L", "A"],
+      "time": [0.4, 0.5]
+    },
+    {
+      "name": "drift right",
+      "inputs": ["drift right", "drift r", "dr"],
+      "outputs": ["L", "A", "B"],
+      "time": [2, 2, 1.5],
+      "delay": [0, 0, 0.2]
+    },
+    {
+      "name": "drift left",
+      "inputs": ["drift left", "drift l", "dl"],
+      "outputs": ["J", "A", "B"],
+      "time": [2, 2, 1.5],
+      "delay": [0, 0, 0.2]
+    },
+    {
+      "name": "slight drift right",
+      "inputs": ["slight drift right", "slight drift r", "slight dr", "sdr"],
+      "outputs": ["L", "A", "B"],
+      "time": [1.1, 1.1, 0.6],
+      "delay": [0, 0, 0.2]
+    },
+    {
+      "name": "slight drift left",
+      "inputs": ["slight drift left", "slight drift l", "slight dl", "sdl"],
+      "outputs": ["J", "A", "B"],
+      "time": [1.1, 1.1, 0.6],
+      "delay": [0, 0, 0.2]
+    },
+    {
+      "name": "use item",
+      "inputs": ["use", "item", "power up"],
+      "outputs": ["Z"],
+      "time": [0.1]
+    },
+    {
+      "name": "look behind",
+      "inputs": ["look behind", "look back", "behind"],
+      "outputs": ["C"],
+      "time": [2]
+    },
+    {
+      "name": "reverse",
+      "inputs": ["reverse", "back"],
+      "outputs": ["B", "C"],
+      "time": [2, 2]
+    },
+    {
+      "name": "select",
+      "inputs": ["select", "choose"],
+      "outputs": ["Num2"],
+      "time": [0.1]
+    },
+    {
+      "name": "select up",
+      "inputs": ["select up"],
+      "outputs": ["Up"],
+      "time": [0.1]
+    },
+    {
+      "name": "select down",
+      "inputs": ["select down"],
+      "outputs": ["Down"],
+      "time": [0.1]
+    },
+    {
+      "name": "select left",
+      "inputs": ["select left"],
+      "outputs": ["Left"],
+      "time": [0.1]
+    },
+    {
+      "name": "select right",
+      "inputs": ["select right"],
+      "outputs": ["Right"],
+      "time": [0.1]
+    }
+  ]
+}

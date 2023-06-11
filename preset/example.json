@@ -28,7 +28,7 @@
     {
       "name": "say hello",
       "inputs": ["hello"],
-      "outputs": ["type(hello)"],
+      "outputs": ["type(hello)", "Enter"],
       "time": [0]
     }
   ]

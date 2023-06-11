@@ -8,6 +8,11 @@ All notable changes to this project will be documented in this file.
 
 - Input preset: Mario Kart Wii
 
+### Fixed
+
+- Releasing key too early when two inputs are pressing the same key simultaneously
+- Not using delay when time is set bellow 0.3
+
 ## [1.1.0] - 2023-06-11
 
 ### Added
@@ -42,7 +47,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Support for multiple game inputs using `inputs/<game>.json`
-- Input preset: M&M Kart Racing 
+- Input preset: M&M Kart Racing
 
 ### Removed
 
@@ -54,4 +59,4 @@ All notable changes to this project will be documented in this file.
 
 [unreleased]: https://github.com/veryCrunchy/TwitchPlays/compare/v1.1.0...HEAD
 [1.1.0]: https://github.com/veryCrunchy/TwitchPlays/compare/v1.0.0...v1.1.0
-[1.0.0]:  https://github.com/veryCrunchy/TwitchPlays/releases/tag/v1.0.0
+[1.0.0]: https://github.com/veryCrunchy/TwitchPlays/releases/tag/v1.0.0

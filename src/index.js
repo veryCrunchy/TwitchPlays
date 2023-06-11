@@ -9,10 +9,10 @@ let commit = require("child_process")
   .trim();
 if (commit.includes("Your branch is behind"))
   console.log(
-    "\x1b[40m\x1b[31mThere is a new version of TwitchPlaysWii available!\x1b[0m"
+    "\x1b[40m\x1b[31mThere is a\x1b[1m new version of TwitchPlays\x1b[0m\x1b[40m\x1b[31m available!\x1b[0m"
   ),
     console.log(
-      "\x1b[40m\x1b[31mRun\x1b[33m git pull\x1b[31m to update.\x1b[0m"
+      "\x1b[40m\x1b[31mRun\x1b[33m\x1b[1m git pull\x1b[0m\x1b[40m\x1b[31m to update.\x1b[0m"
     );
 
 const { obs } = require("./func");
@@ -20,14 +20,6 @@ const { Client } = require("tmi.js");
 const { keyboard, Key, getActiveWindow } = require("@nut-tree/nut-js");
 const { findBestMatch } = require("string-similarity");
 const fs = require("fs");
-
-//TODO: Write env checks
-// if (!env.CHANNEL || !env.TIMED_MODE || !env.INTERVAL || !env.TIMEOUT)
-//   console.error(
-//     "\x1b[1m\x1b[40m\x1b[31mNot all\x1b[33m configs\x1b[31m are defined, or are incorrect!\x1b[0m\n" +
-//       "\x1b[1m\x1b[40m\x1b[31mPlease check the\x1b[33m config.js\x1b[31m file.\x1b[0m\n"
-//   ),
-//     process.exit();
 
 const client = new Client({
   channels: [env.CHANNEL],
