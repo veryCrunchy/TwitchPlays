@@ -1,5 +1,7 @@
 # Twitch Plays!
 
+###### [Changelog](https://github.com/veryCrunchy/TwitchPlays/blob/main/CHANGELOG.md)
+
 ### Dependencies
 
 - [Node.js](https://nodejs.org/)
