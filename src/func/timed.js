@@ -31,7 +31,7 @@ function start() {
   off = false;
   startInterval();
   console.log(
-    `\x1b[0m\x1b[32mEnabled\x1b[33m TIMED\x1b[32m mode on\x1b[33m 2s\x1b[0m`
+    `\x1b[0m\x1b[32mEnabled\x1b[33m TIMED\x1b[32m mode on\x1b[33m ${env.INTERVAL}\x1b[0m`
   );
   obs.send(
     `<span class="green">Enabled <span class="yellow">TIMED</span> mode on <span class="yellow">${env.INTERVAL}</span>s</span>`
