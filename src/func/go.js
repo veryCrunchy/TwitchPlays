@@ -89,7 +89,7 @@ async function manage(name) {
     } else {
       const time = times[i];
       if (delay) {
-        if (time < 0.3) {
+        if (time == 0) {
           setTimeout(() => {
             keyboard.pressKey(Key[press]);
             setTimeout(() => keyboard.releaseKey(Key[press]), 70);
@@ -98,7 +98,7 @@ async function manage(name) {
           setTimeout(() => {
             hold(Key[press], time);
           }, delay * 1000);
-      } else if (time < 0.3) {
+      } else if (time == 0) {
         keyboard.pressKey(Key[press]);
         setTimeout(() => keyboard.releaseKey(Key[press]), 70);
       } else hold(Key[press], time);
