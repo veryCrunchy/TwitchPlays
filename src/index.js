@@ -88,7 +88,6 @@ async function setInput() {
     } config</span><br/><span class="pink">${match.bestMatch.target}</span>`
   );
   lastInput = title;
-
   for (const [key, value] of Object.entries(inputData.config)) {
     if (key != undefined) updateConfiguration({ [key]: value });
   }
@@ -101,6 +100,8 @@ async function setInput() {
     },
   });
   env = getConfiguration();
+  if (env.OBS) obs.emit("align", env.OBS);
+
   if (env.TIMED_MODE) {
     timed.start();
   } else {

@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Input preset: Mario Kart Wii
+- Configuration: Set the alignment of the obs overlay (left, center, right)
 
 ### Fixed
 

@@ -1,5 +1,4 @@
 const { getConfiguration } = require("../../configs.js");
-const env = getConfiguration();
 const express = require("express");
 const app = express();
 const http = require("http");
@@ -8,10 +7,6 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 let connected = false;
-let timeout;
-if (env.TIMED_MODE) {
-  timeout = env.TIMED_MODE * 1.8 * 1000;
-} else timeout = 5000;
 io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     if (connected)
@@ -26,7 +21,9 @@ io.on("connection", (socket) => {
     ),
       (connected = true);
   obs.clear();
-  io.emit("timeout", timeout);
+  const env = getConfiguration();
+  io.emit("align", env.OBS);
+  io.emit("connection");
 });
 
 server.listen(port, () => {
@@ -39,6 +36,9 @@ const obs = {
   },
   clear: function () {
     io.emit("clear");
+  },
+  emit: function (event, msg) {
+    io.emit(event, msg);
   },
 };
 

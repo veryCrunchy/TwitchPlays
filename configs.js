@@ -54,6 +54,8 @@ if (process.env.TIMEOUT != undefined)
 if (process.env.WINDOW != undefined)
   configuration.WINDOW = JSON.parse(process.env.WINDOW);
 
+if (process.env.OBS != undefined) configuration.OBS = String(process.env.OBS);
+
 module.exports = {
   getConfiguration: () => configuration,
   updateConfiguration: (updatedValues) => {

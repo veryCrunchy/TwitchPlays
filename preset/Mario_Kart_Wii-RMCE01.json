@@ -2,7 +2,10 @@
   "config": {
     "WINDOW": ["Dolphin", "RMCE01"],
     "TIMED_MODE": true,
-    "TIMED_ON_INPUT": true
+    "TIMED_ON_INPUT": true,
+    "INTERVAL": 2,
+    "TIMEOUT": 2,
+    "OBS": "left"
   },
   "inputs": [
     {

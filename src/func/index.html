@@ -37,7 +37,7 @@
         }
 
         .dim {
-            opacity: 85%;
+            opacity: 75%;
         }
 
         .edim {
@@ -48,18 +48,32 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
+            align-items: center;
+            align-content: center;
+        }
 
+        #messages.left li {
+            margin-left: 1.5px;
+            margin-right: auto;
+        }
+
+        #messages.center li {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #messages.right li {
+            margin-right: 1.5px;
+            margin-left: auto;
         }
 
         #messages>li {
-            margin-left: 1px;
             margin-top: 1.5px;
             width: fit-content;
             display: block;
             border-radius: 5px;
             color: #ffffff;
             background: #282a35;
-
             overflow: clip;
             max-height: 200px;
             padding: 0.3rem 0.5rem;
@@ -104,28 +118,42 @@
         var socket = io();
 
         var messages = document.getElementById('messages');
-        let timeout = 10000;
-        socket.on('timeout', function (t) {
-            timeout = t
+        socket.on('align', function (pos) {
+            messages.classList = pos
+            console.log(pos)
+            console.log(messages.classList)
         })
+
         socket.on('clear', function () {
             messages.innerHTML = "";
+        })
+        socket.on('connection', function () {
+            var item = document.createElement('li');
+            item.innerHTML = document.createElement('div').innerHTML = `<span class="green edim">Connected</span>`
+            let el = messages.appendChild(item);
+        })
+        socket.on('disconnect', function () {
+            messages.innerHTML = "";
+            var item = document.createElement('li');
+            item.innerHTML = document.createElement('div').innerHTML = `<span class="red edim">Disconnected...</span>`
+            let el = messages.appendChild(item);
         })
         socket.on('message', function (msg) {
 
             var item = document.createElement('li');
             item.innerHTML = document.createElement('div').innerHTML = msg
             let el = messages.appendChild(item);
+            item.scrollIntoView()
 
             for (let m of messages.childNodes) {
                 let rect = m.getBoundingClientRect()
                 if (rect.top < 0) messages.removeChild(m);
             }
 
-            item.scrollIntoView()
 
         });
     </script>
+    <!-- <script src="https://livejs.com/live.js"></script> -->
 </body>
 
 </html>

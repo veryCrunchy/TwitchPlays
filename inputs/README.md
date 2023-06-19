@@ -5,6 +5,7 @@ For example "M&M's_Kart_Racing.json"<br />
 Do not edit the files inside of the `preset` folder!<br />
 
 Example:
+
 ```json
 {
   "config": {
@@ -12,7 +13,8 @@ Example:
     "TIMED_MODE": true,
     "TIMED_ON_INPUT": true,
     "INTERVAL": 2,
-    "TIMEOUT": 2
+    "TIMEOUT": 2,
+    "OBS": "left"
   },
   "inputs": [
     {
