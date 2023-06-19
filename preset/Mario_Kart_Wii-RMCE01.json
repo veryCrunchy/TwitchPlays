@@ -19,7 +19,7 @@
     },
     {
       "name": "drive",
-      "inputs": ["drive", "go", "d"],
+      "inputs": ["drive", "go", "d", "vroom"],
       "outputs": ["A"],
       "time": [5]
     },
@@ -98,6 +98,19 @@
       "inputs": ["reverse", "back"],
       "outputs": ["B", "C"],
       "time": [2, 2]
+    },
+    {
+      "name": "wheelie",
+      "inputs": ["wheelie"],
+      "outputs": ["Num9", "Num0"],
+      "time": [0.1, 0.1],
+      "delay": [0, 0.2]
+    },
+    {
+      "name": "hop",
+      "inputs": ["hop"],
+      "outputs": ["B"],
+      "time": [0]
     },
     {
       "name": "select",
