@@ -1,5 +1,5 @@
 # Twitch Plays!
-
+[![wakatime](https://wakatime.com/badge/user/9c2f3db8-92e0-4ae8-9c77-de06fca2de0d/project/8c69f207-78c7-4631-a59d-f5b293067d65.svg?style=for-the-badge)](https://wakatime.com/badge/user/9c2f3db8-92e0-4ae8-9c77-de06fca2de0d/project/8c69f207-78c7-4631-a59d-f5b293067d65) [![CodeTime badge](https://img.shields.io/endpoint?style=for-the-badge&color=6441a5&url=https%3A%2F%2Fapi.codetime.dev%2Fshield%3Fid%3D18338%26project%3DTwitchPlays%26in%3D0)](https://codetime.dev)
 ###### [Changelog](https://github.com/veryCrunchy/TwitchPlays/blob/main/CHANGELOG.md)
 
 ### Dependencies
