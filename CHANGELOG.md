@@ -32,11 +32,12 @@ All notable changes to this project will be documented in this file.
 - Configuration: Per game configuration
 - Configuration: Configurations are now set by default, you can modify the defaults in `.env`
   Will be overwritten by per game configurations
-
-### Changed
-
-- Game inputs: Support for multiple/combined outputs insead of just one
+- Game inputs: Support for multiple/combined outputs instead of just one
 - Game inputs: Support for multiple times to go with multiple inputs
+
+### Fixed
+
+- "Not focused..." spam; Now only shows once until focused again.
 
 ### Removed
 
