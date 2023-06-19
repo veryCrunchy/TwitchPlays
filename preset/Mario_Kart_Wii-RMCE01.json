@@ -18,6 +18,12 @@
       "time": [0]
     },
     {
+      "name": "big drive",
+      "inputs": ["big drive", "large drive", "big d", "large d", "bd", "ld"],
+      "outputs": ["A"],
+      "time": [10]
+    },
+    {
       "name": "drive",
       "inputs": ["drive", "go", "d", "vroom"],
       "outputs": ["A"],
@@ -27,7 +33,7 @@
       "name": "slight drive",
       "inputs": ["slight drive", "slight go", "small drive", "small go", "sd"],
       "outputs": ["A"],
-      "time": [1]
+      "time": [2]
     },
     {
       "name": "left",
