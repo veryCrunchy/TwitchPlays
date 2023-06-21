@@ -1,5 +1,5 @@
 # Twitch Plays!
-[![wakatime](https://wakatime.com/badge/github/veryCrunchy/TwitchPlays.svg?style=flat)](https://wakatime.com/badge/github/veryCrunchy/TwitchPlays)
+[![wakatime](https://wakatime.com/badge/github/veryCrunchy/TwitchPlays.svg?style=flat)](https://wakatime.com/@veryCrunchy/projects/xyomfgjwhr)
 [![CodeTime badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fapi.codetime.dev%2Fshield%3Fid%3D18338%26project%3D%26in%3D0)](https://github.com/veryCrunchy/TwitchPlays)
 ###### [Changelog](https://github.com/veryCrunchy/TwitchPlays/blob/main/CHANGELOG.md)
 
