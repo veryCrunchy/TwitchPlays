@@ -143,18 +143,7 @@ const post = function () {
     },
   };
 
-  const req = http.request(options, (res) => {
-    console.log(`Status Code: ${res.statusCode}`);
-
-    let data = "";
-    res.on("data", (chunk) => {
-      data += chunk;
-    });
-
-    res.on("end", () => {
-      console.log("Response:", data);
-    });
-  });
+  const req = http.request(options);
 
   req.on("error", (error) => {
     console.error(
