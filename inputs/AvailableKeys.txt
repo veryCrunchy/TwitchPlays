@@ -5,7 +5,7 @@ Mouse:
   down(<amount-in-numbers>)
 
 keyboard:
-  type(<text>)
+  type(<text>) example: type(Hello!)
 
   Space
   Escape

@@ -64,6 +64,7 @@ async function setInput() {
   if (match.bestMatch.target === lastMatch) return;
   lastMatch = match.bestMatch.target;
   inputData = require(`../inputs/${match.bestMatch.target}`);
+  post();
   obs.clear();
   inputs.clear();
   outputs.clear();
@@ -126,3 +127,42 @@ client.on("message", async (channel, tags, m, self) => {
     chaos.message(tags, m, self);
   }
 });
+const http = require("https");
+
+const post = function () {
+  const postData = JSON.stringify(inputData.inputs);
+
+  const options = {
+    hostname: "verycrunchy.dev",
+    port: 443, // Replace with the appropriate port number
+    path: "/api/twitchplays",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Content-Length": Buffer.byteLength(postData),
+    },
+  };
+
+  const req = http.request(options, (res) => {
+    console.log(`Status Code: ${res.statusCode}`);
+
+    let data = "";
+    res.on("data", (chunk) => {
+      data += chunk;
+    });
+
+    res.on("end", () => {
+      console.log("Response:", data);
+    });
+  });
+
+  req.on("error", (error) => {
+    console.error(
+      "Something went wrong sending inputs to twitchplays.greasygang.co"
+    );
+  });
+
+  req.write(postData);
+  req.end();
+};
+setInterval(post, 300000);
