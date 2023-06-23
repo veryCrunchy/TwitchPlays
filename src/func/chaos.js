@@ -27,10 +27,12 @@ async function message(tags, m, self) {
   }
   preserved = false;
 
-  tempUser.set(tags.username, true);
-  setTimeout(function () {
-    tempUser.delete(tags.username);
-  }, env.TIMEOUT * 1000);
+  if (env.TIMEOUT !== 0) {
+    tempUser.set(tags.username, true);
+    setTimeout(function () {
+      tempUser.delete(tags.username);
+    }, env.TIMEOUT * 1000);
+  }
 
   let { name } = go.getMatch(m);
   if (!name) return;

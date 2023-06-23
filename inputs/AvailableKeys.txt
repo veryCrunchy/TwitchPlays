@@ -3,6 +3,8 @@ Mouse:
   right(<amount-in-numbers>)
   up(<amount-in-numbers>)
   down(<amount-in-numbers>)
+  mouse(center)
+  mouse(<xPosition>,<yPosition>)
 
 keyboard:
   type(<text>) example: type(Hello!)

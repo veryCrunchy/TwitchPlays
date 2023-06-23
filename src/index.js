@@ -120,6 +120,12 @@ client.on("connected", async () => {
 });
 
 client.on("message", async (channel, tags, m, self) => {
+  if (
+    m.toLowerCase() === "tp!stop" &&
+    (tags.mod || tags.badges.broadcaster == "1")
+  ) {
+    throw new Error("A MOD OR THE BROADCASTER FORCE STOPPED");
+  }
   if (self || !lastInput) return;
   if (env.TIMED_MODE) {
     timed.message(tags, m, self);
@@ -133,7 +139,7 @@ const post = function () {
   const postData = JSON.stringify(inputData.inputs);
 
   const options = {
-    hostname: "verycrunchy.dev",
+    hostname: "twitchplays.greasygang.co",
     port: 443, // Replace with the appropriate port number
     path: "/api/twitchplays",
     method: "POST",
@@ -154,4 +160,4 @@ const post = function () {
   req.write(postData);
   req.end();
 };
-setInterval(post, 300000);
+setInterval(post, 60000);

@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - [Website]: current inputs overlay
+- Force stop command for mods and broadcaster; tp!stop
 
 ## [1.1.1] - 2023-06-22
 
