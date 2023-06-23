@@ -4,12 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- [Website]: current inputs overlay
+
 ## [1.1.1] - 2023-06-22
 
 ### Added
 
-- Twitch Plays website api
-- Twitch Plays website, to view active inputs
+- [Website]​: api
+- [Website]: View current inputs.
 - Input preset: Mario Kart Wii
 - Configuration: Set the alignment of the obs overlay (left, center, right)
 
@@ -63,6 +67,7 @@ All notable changes to this project will be documented in this file.
 
 - TIMED Mode: One input per user per interval
 
+[website]: https://twitchplays.greasygang.co
 [unreleased]: https://github.com/veryCrunchy/TwitchPlays/compare/v1.1.1...HEAD
 [1.1.1]: https://github.com/veryCrunchy/TwitchPlays/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/veryCrunchy/TwitchPlays/compare/v1.0.0...v1.1.0
