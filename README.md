@@ -36,13 +36,13 @@ npm i
 - create a file named `.env` and copy/paste the contents from `.env.example` into it
 - modify accordingly
 
-### Executing script
+### Executing program
 
-- Open a terminal in the folder of this script
+- Open a terminal in the folder of this program
 - Run the following command
 
 ```
-node .
+nodemon .
 ```
 
 ## Author
@@ -51,7 +51,7 @@ node .
 
 ## License
 
-Before (commercially) using this script, contact the author via Discord or Email
+Before (commercially) using this program, contact the author via Discord or Email
 
 - veryCrunchy#3281
 - verycrunchydev@gmail.com
