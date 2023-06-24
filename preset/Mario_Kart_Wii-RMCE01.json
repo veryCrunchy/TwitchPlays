@@ -1,7 +1,7 @@
 {
   "config": {
     "WINDOW": ["Dolphin", "RMCE01"],
-    "TIMED_MODE": true,
+    "TIMED_MODE": false,
     "TIMED_ON_INPUT": true,
     "INTERVAL": 2,
     "TIMEOUT": 2,
@@ -22,21 +22,28 @@
     },
     {
       "name": "big drive",
-      "inputs": ["big drive", "large drive", "big d", "large d", "bd", "ld"],
+      "inputs": ["big drive", "big d", "bd", "large drive", "large d", "ld"],
       "outputs": ["A"],
       "time": [10]
     },
     {
       "name": "drive",
-      "inputs": ["drive", "go", "d", "vroom"],
+      "inputs": ["drive", "d", "go", "vroom"],
       "outputs": ["A"],
       "time": [5]
     },
     {
       "name": "slight drive",
-      "inputs": ["slight drive", "slight go", "small drive", "small go", "sd"],
+      "inputs": [
+        "slight drive",
+        "small drive",
+        "sd",
+        "slight go",
+        "small go",
+        "sg"
+      ],
       "outputs": ["A"],
-      "time": [2]
+      "time": [1]
     },
     {
       "name": "left",
@@ -150,6 +157,13 @@
       "inputs": ["select right", "sel right"],
       "outputs": ["Right"],
       "time": [0]
+    },
+    {
+      "name": "menu | 30% chance",
+      "inputs": ["menu"],
+      "outputs": ["E"],
+      "time": [0],
+      "chance": 30
     }
   ]
 }

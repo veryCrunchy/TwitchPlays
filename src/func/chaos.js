@@ -36,6 +36,13 @@ async function message(tags, m, self) {
 
   let { name } = go.getMatch(m);
   if (!name) return;
+  let chance = env.data.chances.get(name) || undefined;
+  if (chance != undefined && Math.random() * 100 > env.data.chances.get(name)) {
+    return obs.send(
+      `<span style="color: ${tags.color}">${tags.username}</span> <span class="red">${name}</span>`
+    );
+  }
+
   console.log(`\x1b[34m${tags.username}:\x1b[33m ${name}\x1b[0m`);
   obs.send(
     `<span style="color: ${tags.color}">${tags.username}</span> <span class="yellow">${name}</span>`

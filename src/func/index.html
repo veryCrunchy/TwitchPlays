@@ -131,6 +131,7 @@
             var item = document.createElement('li');
             item.innerHTML = document.createElement('div').innerHTML = `<span class="green edim">Connected</span>`
             let el = messages.appendChild(item);
+            setTimeout(function () { messages.removeChild(el); }, 4000)
             updateParentOpacity();
         })
         socket.on('disconnect', function () {
@@ -138,6 +139,7 @@
             var item = document.createElement('li');
             item.innerHTML = document.createElement('div').innerHTML = `<span class="red edim">Disconnected...</span>`
             let el = messages.appendChild(item);
+            setTimeout(function () { messages.removeChild(el); }, 4000)
             updateParentOpacity();
         })
         socket.on('message', function (msg) {
@@ -154,7 +156,7 @@
             updateParentOpacity();
         });
     </script>
-    <script src="https://livejs.com/live.js"></script>
+    <!-- <script src="https://livejs.com/live.js"></script> -->
 </body>
 
 </html>

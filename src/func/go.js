@@ -47,7 +47,6 @@ function getMatch(m) {
 mouse.config.mouseSpeed = 2000;
 
 async function manage(name) {
-  console.log(await mouse.getPosition());
   const env = getConfiguration();
   const times = env.data.times.get(name);
   const delays = env.data.delays.get(name);

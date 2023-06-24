@@ -20,6 +20,7 @@ const { Client } = require("tmi.js");
 const { keyboard, Key, getActiveWindow } = require("@nut-tree/nut-js");
 const { findBestMatch } = require("string-similarity");
 const fs = require("fs");
+const nodemon = require("nodemon");
 
 const client = new Client({
   channels: [env.CHANNEL],
@@ -52,6 +53,7 @@ const inputs = new Map();
 const outputs = new Map();
 const times = new Map();
 const delays = new Map();
+const chances = new Map();
 const interval = setInterval(setInput, 2000);
 let inputData;
 module.exports.inputData = inputData;
@@ -70,6 +72,7 @@ async function setInput() {
   outputs.clear();
   times.clear();
   delays.clear();
+  chances.clear();
   for (let i of inputData.inputs) {
     for (let input of i.inputs) {
       inputs.set(input, i.name);
@@ -77,6 +80,7 @@ async function setInput() {
     outputs.set(i.name, i.outputs);
     times.set(i.name, i.time);
     delays.set(i.name, i.delay);
+    if (i.chance) chances.set(i.name, i.chance);
   }
   console.log(
     `\x1b[33m -\x1b[0m\x1b[36m Automatically ${
@@ -98,6 +102,7 @@ async function setInput() {
       outputs: outputs,
       times: times,
       delays: delays,
+      chances: chances,
     },
   });
   env = getConfiguration();
@@ -121,10 +126,10 @@ client.on("connected", async () => {
 
 client.on("message", async (channel, tags, m, self) => {
   if (
-    m.toLowerCase() === "tp!stop" &&
+    m.toLowerCase().trim() === "tp!stop" &&
     (tags.mod || tags.badges.broadcaster == "1")
   ) {
-    throw new Error("A MOD OR THE BROADCASTER FORCE STOPPED");
+
   }
   if (self || !lastInput) return;
   if (env.TIMED_MODE) {
