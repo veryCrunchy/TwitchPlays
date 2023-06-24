@@ -1,6 +1,7 @@
 const {
   Key,
   Point,
+  Button,
   keyboard,
   mouse,
   screen,
@@ -78,6 +79,14 @@ async function manage(name) {
       case press.startsWith("down"): {
         let m = Number(press.match(/down\((\d+)\)/)[1]);
         goMouse(down(m), delay);
+        break;
+      }
+      case press.startsWith("click(left)"): {
+        await mouse.click(Button.LEFT);
+        break;
+      }
+      case press.startsWith("click(right)"): {
+        await mouse.click(Button.RIGHT);
         break;
       }
       case press.startsWith("type"): {
