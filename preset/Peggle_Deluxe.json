@@ -53,13 +53,13 @@
     {
       "name": "down",
       "inputs": ["down", "d"],
-      "outputs": ["left(200)"],
+      "outputs": ["down(200)"],
       "time": [0]
     },
     {
       "name": "small down",
       "inputs": ["small down", "sd"],
-      "outputs": ["left(200)"],
+      "outputs": ["down(100)"],
       "time": [0]
     }
   ]
