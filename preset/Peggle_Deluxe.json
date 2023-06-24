@@ -1,0 +1,66 @@
+{
+  "config": {
+    "WINDOW": ["Peggle", "Deluxe"],
+    "TIMED_MODE": false,
+    "TIMED_ON_INPUT": true,
+    "INTERVAL": 2,
+    "TIMEOUT": 2,
+    "OBS": "right"
+  },
+  "inputs": [
+    {
+      "name": "shoot",
+      "inputs": ["shoot", "click"],
+      "outputs": ["click(left)"],
+      "time": [0]
+    },
+    {
+      "name": "left",
+      "inputs": ["left", "l"],
+      "outputs": ["left(200)"],
+      "time": [0]
+    },
+    {
+      "name": "small left",
+      "inputs": ["small left", "sl"],
+      "outputs": ["left(90)"],
+      "time": [0]
+    },
+    {
+      "name": "right",
+      "inputs": ["right", "r"],
+      "outputs": ["right(200)"],
+      "time": [0]
+    },
+    {
+      "name": "small right",
+      "inputs": ["right", "sr"],
+      "outputs": ["right(90)"],
+      "time": [0]
+    },
+    {
+      "name": "up",
+      "inputs": ["up", "u"],
+      "outputs": ["up(200)"],
+      "time": [0]
+    },
+    {
+      "name": "small up",
+      "inputs": ["small up", "su"],
+      "outputs": ["up(100)"],
+      "time": [0]
+    },
+    {
+      "name": "down",
+      "inputs": ["down", "d"],
+      "outputs": ["left(200)"],
+      "time": [0]
+    },
+    {
+      "name": "small down",
+      "inputs": ["small down", "sd"],
+      "outputs": ["left(200)"],
+      "time": [0]
+    }
+  ]
+}
