@@ -6,8 +6,10 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- [Website]: current inputs overlay
+- [Website]: Better chat inputs overlay
+- [Website]: Controls overlay
 - Game Inputs: Chances on chaos mode
+- [Input Preset](https://github.com/veryCrunchy/TwitchPlays/blob/main/preset/Peggle_Deluxe.json): Peggle Deluxe
 <!-- - Force stop command for mods and broadcaster; tp!stop -->
 
 ## [1.1.1] - 2023-06-22
@@ -16,7 +18,7 @@ All notable changes to this project will be documented in this file.
 
 - [Website]​: api
 - [Website]: View current inputs.
-- Input preset: Mario Kart Wii
+- [Input Preset](https://github.com/veryCrunchy/TwitchPlays/blob/main/preset/Mario_Kart_Wii-RMCE01.json): Mario Kart Wii
 - Configuration: Set the alignment of the obs overlay (left, center, right)
 
 ### Fixed

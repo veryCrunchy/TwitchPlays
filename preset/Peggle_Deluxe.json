@@ -17,49 +17,49 @@
     {
       "name": "left",
       "inputs": ["left", "l"],
-      "outputs": ["left(200)"],
+      "outputs": ["left(20)"],
       "time": [0]
     },
     {
       "name": "small left",
       "inputs": ["small left", "sl"],
-      "outputs": ["left(90)"],
+      "outputs": ["left(10)"],
       "time": [0]
     },
     {
       "name": "right",
       "inputs": ["right", "r"],
-      "outputs": ["right(200)"],
+      "outputs": ["right(20)"],
       "time": [0]
     },
     {
       "name": "small right",
       "inputs": ["right", "sr"],
-      "outputs": ["right(90)"],
+      "outputs": ["right(10)"],
       "time": [0]
     },
     {
       "name": "up",
       "inputs": ["up", "u"],
-      "outputs": ["up(200)"],
+      "outputs": ["up(20)"],
       "time": [0]
     },
     {
       "name": "small up",
       "inputs": ["small up", "su"],
-      "outputs": ["up(100)"],
+      "outputs": ["up(10)"],
       "time": [0]
     },
     {
       "name": "down",
       "inputs": ["down", "d"],
-      "outputs": ["down(200)"],
+      "outputs": ["down(20)"],
       "time": [0]
     },
     {
       "name": "small down",
       "inputs": ["small down", "sd"],
-      "outputs": ["down(100)"],
+      "outputs": ["down(10)"],
       "time": [0]
     }
   ]

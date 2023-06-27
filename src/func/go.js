@@ -58,7 +58,7 @@ async function manage(name) {
       delay = delays[i];
     }
     switch (true) {
-      case press.startsWith("mouse"):
+      case press.startsWith("mouse(center)"):
         moveMouseToCenter();
         break;
       case press.startsWith("left"): {
