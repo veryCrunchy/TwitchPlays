@@ -129,7 +129,6 @@ client.on("message", async (channel, tags, m, self) => {
     m.toLowerCase().trim() === "tp!stop" &&
     (tags.mod || tags.badges.broadcaster == "1")
   ) {
-
   }
   if (self || !lastInput) return;
   if (env.TIMED_MODE) {
@@ -138,31 +137,21 @@ client.on("message", async (channel, tags, m, self) => {
     chaos.message(tags, m, self);
   }
 });
-const http = require("https");
+const fetch = require("node-fetch");
 
-const post = function () {
-  const postData = JSON.stringify(inputData.inputs);
-
-  const options = {
-    hostname: "twitchplays.greasygang.co",
-    port: 443, // Replace with the appropriate port number
-    path: "/api/twitchplays",
+let postInterval = 60000;
+const post = async function () {
+  let url = `https://twitchplays.greasygang.co/api/twitchplays?s=${process.env.CHANNEL}`;
+  if (process.env.NODE_ENV == "dev")
+    (url = `http://localhost:3000/api/twitchplays?s=${process.env.CHANNEL}`),
+      (postInterval = 4000);
+  await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Content-Length": Buffer.byteLength(postData),
+      Authorization: process.env.TOKEN,
     },
-  };
-
-  const req = http.request(options);
-
-  req.on("error", (error) => {
-    console.error(
-      "Something went wrong sending inputs to twitchplays.greasygang.co"
-    );
+    body: JSON.stringify(inputData.inputs),
   });
-
-  req.write(postData);
-  req.end();
 };
-setInterval(post, 60000);
+setInterval(post, postInterval);
