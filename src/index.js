@@ -20,7 +20,6 @@ const { Client } = require("tmi.js");
 const { keyboard, Key, getActiveWindow } = require("@nut-tree/nut-js");
 const { findBestMatch } = require("string-similarity");
 const fs = require("fs");
-const nodemon = require("nodemon");
 
 const client = new Client({
   channels: [env.CHANNEL],
@@ -66,7 +65,6 @@ async function setInput() {
   if (match.bestMatch.target === lastMatch) return;
   lastMatch = match.bestMatch.target;
   inputData = require(`../inputs/${match.bestMatch.target}`);
-  post();
   obs.clear();
   inputs.clear();
   outputs.clear();
@@ -93,6 +91,7 @@ async function setInput() {
     } config</span><br/><span class="pink">${match.bestMatch.target}</span>`
   );
   lastInput = title;
+  post();
   for (const [key, value] of Object.entries(inputData.config)) {
     if (key != undefined) updateConfiguration({ [key]: value });
   }
@@ -141,11 +140,12 @@ const fetch = require("node-fetch");
 
 let postInterval = 60000;
 const post = async function () {
+  if (postInterval === 0 || !lastInput) return;
   let url = `https://twitchplays.greasygang.co/api/twitchplays?s=${process.env.CHANNEL}`;
   if (process.env.NODE_ENV == "dev")
     (url = `http://localhost:3000/api/twitchplays?s=${process.env.CHANNEL}`),
       (postInterval = 4000);
-  await fetch(url, {
+  let res = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -153,5 +153,23 @@ const post = async function () {
     },
     body: JSON.stringify(inputData.inputs),
   });
+  // console.log(res);
+  if (res.status !== 200) {
+    clearInterval(postIntervalId);
+    postInterval = 0;
+    console.log(
+      `\x1b[0m\x1b[31mSomething went wrong sending inputs to the website;\x1b[33m ${res.statusText}\x1b[0m`
+    );
+    if (res.status === 401) {
+      console.log(
+        `\x1b[0m\x1b[31mMake sure you have the right token and correct channel name configured.\x1b[0m`
+      );
+    }
+    if (res.status === 400) {
+      console.log(
+        `\x1b[0m\x1b[31mMake sure your input configs are valid.\x1b[0m`
+      );
+    }
+  }
 };
-setInterval(post, postInterval);
+let postIntervalId = setInterval(post, postInterval);
